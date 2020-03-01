@@ -59,33 +59,45 @@ table {
 	scroll-snap-destination: 100% 0%;
   }
 
-nav {
-    display: flex;
-	align-items: center;
-	background-color: #79bac1;
-	justify-content: space-around;
+body {
+	background-image: url("https://images.unsplash.com/photo-1509833903111-9cb142f644e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60");
+	/* background-size: contain; */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-size: 800px 500px;
 }
-/* #login:before {
-	content: 'Login';
-	font-size: 15px;
-} */
-
-div#login {
+#login-create {
     display: flex;
 	flex-direction: column;
 	/* padding-left: 30rem; */
 	align-items: center;
+	align-content: center;
 	justify-content: space-around;
 }
 
-h1#Title {
-    font-size: 40px;
-    color: #f1f3f4;
-    font-family: 'Merriweather', serif;
+#login {
+    display: flex;
+	flex-direction: column;
+	/* padding-left: 30rem; */
+	align-items: center;
+	align-content: center;
+	justify-content: space-around;
 }
 
-h2 {
-    font-family: 'Merriweather', serif;
+#container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+	padding-top: 10rem;
+	padding-bottom: 10rem;
+}
+
+
+h1 {
+	font-family: 'Merriweather', serif;
+	font-size: 25px;
 }
 
 #submit {
@@ -94,151 +106,3 @@ h2 {
 }
 
 
-#recipe-of-day-image {
-	border: solid;
-	border-color: #f1f3f4;
-	box-shadow: lightsteelblue;
-	border-style: inherit;
-	border-radius: 50%;
-}
-
-#recipe-button {
-	border: 1px solid #999;
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 17px;
-    background-color: #512b58;
-	box-shadow: 0px 0px 8px;
-	text-decoration: none;
-} 
-
-#recipe-caption {
-	font-size: 20px;
-	color: #f1f3f4;
-}
-
-
-main {
-  
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 5rem;
-	overflow-y: scroll;
-	/* justify-content: flex-end; */
-}
-
-.wrapper {
-	display: grid;
-	grid-template-columns: 200px 200px 200px;
-  	grid-gap: 20px;
-  }
-
-  
-
-
-  #box1{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	/* font-size: 20px; */
-	
-  }
-
-  #box2{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-items: flex-start;
-	/* font-size: 20px; */
-  }
-
-  #box3{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-items: flex-start;
-	/* font-size: 20px; */
-  }
-
-  #box4{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-items: flex-start;
-	/* font-size: 20px; */
-  }
-
-  #box5{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-items: flex-start;
-	/* font-size: 20px; */
-  }
-
-
-  h1#weather_date{
-	font-size: 20px;
-	color: salmon;
-	font-style: italic;
-  }
-
-  #weather-form-input{
-	 border: 5px solid;
-	 border-color: #512b58;
-	 box-shadow: steelblue;
-  }
-
-  #weather-info{ 
-	 font-size: 20px;
-	 color: gray;
-  }
-
-  #weather-temp{
-	  font-size: 20px;
-	  color: lightblue;
-  }
-
-  
-  #table-title{
-	  font-size: 30px;
-	  font-family: 'Simonetta';
-	  text-align: center;
-  }
-  table, th, td {
-	border: 1px solid black;
-  }
