@@ -47,10 +47,22 @@ table {
 	border-spacing: 0;
 }
 
+.docScroller {
+	overflow-x: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	scroll-snap-points-y: repeat(100%);
+	scroll-snap-type: mandatory;
+	scroll-snap-destination: 100% 0%;
+  }
+
 nav {
     display: flex;
 	align-items: center;
-	background-color: lightskyblue;
+	background-color: #79bac1;
 	justify-content: space-around;
 }
 /* #login:before {
@@ -68,7 +80,7 @@ div#login {
 
 h1#Title {
     font-size: 40px;
-    color: pink;
+    color: #f1f3f4;
     font-family: 'Merriweather', serif;
 }
 
@@ -84,7 +96,7 @@ h2 {
 
 #recipe-of-day-image {
 	border: solid;
-	border-color: palegoldenrod;
+	border-color: #f1f3f4;
 	box-shadow: lightsteelblue;
 	border-style: inherit;
 	border-radius: 50%;
@@ -100,23 +112,27 @@ h2 {
     width: 10rem;
     height: 10rem;
     border-radius: 17px;
-    background-color: #FFB6C1;
+    background-color: #512b58;
 	box-shadow: 0px 0px 8px;
 	text-decoration: none;
 } 
 
 #recipe-caption {
 	font-size: 20px;
-	color: lightslategray;
+	color: #f1f3f4;
 }
 
+
 main {
+  
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	justify-content: space-between;
 	align-items: center;
 	padding-top: 5rem;
+	overflow-y: scroll;
 	/* justify-content: flex-end; */
 }
 
@@ -125,6 +141,9 @@ main {
 	grid-template-columns: 200px 200px 200px;
   	grid-gap: 20px;
   }
+
+  
+
 
   #box1{
 	border: solid;
@@ -198,6 +217,12 @@ main {
 	font-style: italic;
   }
 
+  #weather-form-input{
+	 border: 5px solid;
+	 border-color: #512b58;
+	 box-shadow: steelblue;
+  }
+
   #weather-info{ 
 	 font-size: 20px;
 	 color: gray;
@@ -208,3 +233,12 @@ main {
 	  color: lightblue;
   }
 
+  
+  #table-title{
+	  font-size: 30px;
+	  font-family: 'Simonetta';
+	  text-align: center;
+  }
+  table, th, td {
+	border: 1px solid black;
+  }
