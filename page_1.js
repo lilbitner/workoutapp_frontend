@@ -11,7 +11,8 @@ const weatherForm = document.createElement('form')
 weatherForm.id = 'weather-form'
 weatherForm.innerHTML= `
 <h2 id='form-title'>Submit City for Weather Forecast<h2> <br> 
-<input id='weather-form-input' type='text' name='city' placeholder= 'City Name'>`
+<input id='weather-form-input' type='text' name='city' placeholder= 'City Name'>
+<input id='submit_button_weather' type="submit" name="Submit">`
 document.querySelector('.weather-form').appendChild(weatherForm)
 
 weatherForm.addEventListener('submit', () => {
@@ -63,4 +64,52 @@ weatherForm.addEventListener('submit', () => {
         })
     })
   
+})
+
+const goalForm = document.querySelector('#goal-form')
+goalForm.id = "goal-form"
+goalForm.innerHTML = `
+<h2 id='goal-form-title'>Submit your goal<h2> <br> 
+<select id='form-input' name='goal' placeholder= 'Your goal'>
+<option value='bulk'>Bulk</option>
+<option value='cut'>Cut</option>
+</select>
+<input id='submit_button_goal' type="submit" name="Submit">
+`
+
+goalForm.addEventListener('submit', () => {
+    console.log(event)
+    
+    event.preventDefault()
+
+    const formData = new FormData(goalForm)
+    const goalInput = formData.get('goal')
+    workoutUrl = `http://localhost:3000/${goalInput}`
+
+    fetch(workoutUrl, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({goalInput})
+    }).then(response => response.json())
+    // .then(console.log)
+    .then(workouts => {
+        console.log(workouts)
+        const workoutOne = workouts.slice(0,5)
+        console.log(workoutOne)
+
+        const workoutTwo = workouts.slice(5,10)
+        console.log(workoutTwo)
+
+        const workoutThree= workouts[10]
+        console.log(workoutThree)
+
+        const workoutFour = workouts.slice(11,16)
+        console.log(workoutFour)
+
+        const workoutFive = workouts.slice(16,21)
+        console.log(workoutFive)
+    })
+
 })

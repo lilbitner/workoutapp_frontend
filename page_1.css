@@ -132,7 +132,7 @@ main {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	/* align-items: center; */
 	padding-top: 5rem;
 	overflow-y: scroll;
@@ -143,6 +143,11 @@ main {
 	display: grid;
 	grid-template-columns: 200px 200px 200px;
   	grid-gap: 20px;
+  }
+
+  #submit_button_weather {
+	font-family: 'Simonetta';
+	border: solid;
   }
 
   
@@ -230,7 +235,8 @@ main {
 }
 
 #weather-grid-title {
-	padding-left: 22rem;
+	/* padding-left: 22rem; */
+	text-align: center;
 	padding-top: 3rem;
 	font-family: 'Simonetta';
 	font-size: 25px;
@@ -251,6 +257,7 @@ main {
 #form-title{
 	font-family: 'Simonetta';
 	font-size: 20px;
+	text-align: center;
 }
   #weather-form {
 	font-family: 'Simonetta';
@@ -267,12 +274,61 @@ main {
 	  color: black;
   }
 
+  #workout-info-title {
+	font-family: 'Simonetta';
+	font-size: 25px;
+	text-align: center;
+	/* padding-right: 11rem; */
+}
+  
+
   
   #table-title{
 	  font-size: 30px;
 	  font-family: 'Simonetta';
 	  text-align: center;
+	  padding-top: 5rem;
   }
   table, th, td {
 	border: 1px solid black;
+  }
+
+  #goal-form-title {
+	font-family: 'Simonetta';
+	font-size: 20px;
+  }
+
+  #goal-form {
+	  padding-left: 8rem;
+  }
+
+  #form-input {
+	border: 5px solid;
+	border-color: #512b58;
+	box-shadow: steelblue;
+	font-family: 'Simonetta';
+  }
+
+#goal-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#definitions {
+	padding-right: 37rem;
+}
+
+#definition-button {
+	border: 1px solid #999;
+	width: 10rem;
+    height: 6rem;
+    border-radius: 17px;
+    background-color: #512b58;
+	box-shadow: 0px 0px 8px;
+}
+
+#submit_button_goal {
+	font-family: 'Simonetta';
+	border: solid;
   }
