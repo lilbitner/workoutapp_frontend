@@ -63,13 +63,17 @@ nav {
     display: flex;
 	align-items: center;
 	background-color: #79bac1;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 /* #login:before {
 	content: 'Login';
 	font-size: 15px;
 } */
 
+h3{
+	font-family: 'Simonetta';
+	font-size: 15px;
+}
 div#login {
     display: flex;
 	flex-direction: column;
@@ -78,10 +82,10 @@ div#login {
 	justify-content: space-around;
 }
 
-h1#Title {
-    font-size: 40px;
+h1#title {
+    font-size: 35px;
     color: #f1f3f4;
-    font-family: 'Merriweather', serif;
+	font-family: 'Merriweather', serif;
 }
 
 h2 {
@@ -109,8 +113,8 @@ h2 {
     margin: 1rem;
     align-items: center;
     justify-content: space-evenly;
-    width: 10rem;
-    height: 10rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 17px;
     background-color: #512b58;
 	box-shadow: 0px 0px 8px;
@@ -118,10 +122,9 @@ h2 {
 } 
 
 #recipe-caption {
-	font-size: 20px;
+	font-size: 10px;
 	color: #f1f3f4;
 }
-
 
 main {
   
@@ -130,7 +133,7 @@ main {
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	justify-content: space-between;
-	align-items: center;
+	/* align-items: center; */
 	padding-top: 5rem;
 	overflow-y: scroll;
 	/* justify-content: flex-end; */
@@ -154,6 +157,8 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
 	/* font-size: 20px; */
 	
   }
@@ -168,6 +173,8 @@ main {
 	flex-direction: column;
 	align-items: center;
 	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
 	/* font-size: 20px; */
   }
 
@@ -181,6 +188,8 @@ main {
 	flex-direction: column;
 	align-items: center;
 	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
 	/* font-size: 20px; */
   }
 
@@ -194,6 +203,8 @@ main {
 	flex-direction: column;
 	align-items: center;
 	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
 	/* font-size: 20px; */
   }
 
@@ -207,9 +218,23 @@ main {
 	flex-direction: column;
 	align-items: center;
 	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
 	/* font-size: 20px; */
   }
+.weather-data {
+	display: flex;
+	align-items: center;
+	padding-bottom: 10rem;
 
+}
+
+#weather-grid-title {
+	padding-left: 22rem;
+	padding-top: 3rem;
+	font-family: 'Simonetta';
+	font-size: 25px;
+}
 
   h1#weather_date{
 	font-size: 20px;
@@ -221,16 +246,25 @@ main {
 	 border: 5px solid;
 	 border-color: #512b58;
 	 box-shadow: steelblue;
+	 font-family: 'Simonetta';
+  }
+#form-title{
+	font-family: 'Simonetta';
+	font-size: 20px;
+}
+  #weather-form {
+	font-family: 'Simonetta';
+	padding-left: 1rem;
   }
 
   #weather-info{ 
 	 font-size: 20px;
-	 color: gray;
+	 color: darkgray;
   }
 
   #weather-temp{
 	  font-size: 20px;
-	  color: lightblue;
+	  color: black;
   }
 
   
