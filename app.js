@@ -1,60 +1,55 @@
-const weatherForm = document.createElement('form')
-weatherForm.id = 'weather-form'
-weatherForm.innerHTML= `
-Submit City for 5-day Weather Forecast <br> 
-<input id='weather-form-input' type='text' name='city' placeholder= 'City Name'>`
-document.querySelector('.weather-form').appendChild(weatherForm)
+ const createForm = document.querySelector('#login-create') 
+ const loginForm = document.querySelector('#login')
+ const signupUrl = "http://localhost:3000/users"
+ const authUrl = "http://localhost:3000/login"
 
-weatherForm.addEventListener('submit', () => {
+ createForm.addEventListener('submit', () => {
     event.preventDefault()
     console.log(event)
-    const formData = new FormData(weatherForm)
-    const city = formData.get('city')
-    console.log(city)
+    const formData = new FormData(createForm)
+    const username = formData.get('username')
+    const password = formData.get('password')
+ 
+    fetch(signupUrl, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username, password})
+    }).then(response => { 
+        if(response.status >= 400) throw new Error("Bad Request")
+        window.location.href='index.html'
+    }).catch(error => console.error(error.message))
+}) 
 
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=034655c18b43d676c2ac0f170b031d32`)
-    .then(response => response.json()) 
-    .then(weather => {
-    const weatherArray = weather.list 
-
-    let weatherElementNumber = 0;
-
-    weatherArray.forEach(weatherElement => {
-        console.log(weatherElement) 
-        if (weatherElement.dt_txt.includes('12:00')) {
-            ++weatherElementNumber;
-            weatherElementNumber; 
-            
-            let h1 = document.createElement('h1')
-            const s = weatherElement.dt_txt
-            const withoutTime = s.slice(0,-8);
-            h1.id = "weather_date"
-            h1.textContent = withoutTime
-            document.querySelector(`#box${weatherElementNumber}`).appendChild(h1)    
-        
-            weatherElement.weather.forEach(weather => 
-            weatherContent = weather.description)
-            console.log(weatherContent)
-            
-            let p1 = document.createElement('p1')
-            p1.id = "weather-info"
-            p1.textContent = weatherContent
-            document.querySelector(`#box${weatherElementNumber}`).appendChild(p1) 
-
-            let p2 = document.createElement('p2')
-            p2.id = "weather-temp"
-            const temp = weatherElement.main.temp 
-            const finalTemp = Math.trunc((temp - 272) * 1.8 + 32)
-            p2.textContent = finalTemp
-            document.querySelector(`#box${weatherElementNumber}`).appendChild(p2)
-            
-            }else {
-                return 'false';
-            }
-        })
+loginForm.addEventListener('submit', () => {
+    event.preventDefault()
+    const formData = new FormData(loginForm)
+    const username = formData.get('username')
+    const password = formData.get('password')
+ 
+    fetch(authUrl, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify({username, password})
+    }).then(response => response.json())
+   .then( window.location.href="page_1.html")
+    .then(response => {
+        localStorage.setItem("token", response.token)
     })
-  
-})
+}) 
+
+// const token = localStorage.getItem("token")
+
+// fetch('http://localhost:3000/users', {
+//     method: "GET", 
+//     headers: {
+//         "Authorization": `Bearer ${token}`
+//     }
+// })
+
 
 
 
