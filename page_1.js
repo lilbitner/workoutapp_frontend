@@ -67,7 +67,6 @@ weatherForm.addEventListener('submit', () => {
 })
 
 const goalForm = document.querySelector('#goal-form')
-goalForm.id = "goal-form"
 goalForm.innerHTML = `
 <h2 id='goal-form-title'>Submit your goal<h2> <br> 
 <select id='form-input' name='goal' placeholder= 'Your goal'>
@@ -84,6 +83,9 @@ goalForm.addEventListener('submit', () => {
 
     const formData = new FormData(goalForm)
     const goalInput = formData.get('goal')
+    // dayThreeWeather = document.querySelector('#box3#weather-info')
+    // const percipitation = dayThreeWeather.textContent.value 
+    // console.log(percipitation)
     workoutUrl = `http://localhost:3000/${goalInput}`
 
     fetch(workoutUrl, {
@@ -95,21 +97,83 @@ goalForm.addEventListener('submit', () => {
     }).then(response => response.json())
     // .then(console.log)
     .then(workouts => {
-        console.log(workouts)
+       
+        const workoutTitleOne =  document.createElement('h1')
+        workoutTitleOne.textContent = workouts[0].title 
+       const frontCardOne = document.querySelector('.flip-card-front-one')
+       frontCardOne.appendChild(workoutTitleOne)
+
+
+    
         const workoutOne = workouts.slice(0,5)
-        console.log(workoutOne)
+        workoutOne.map(exercise => {
+        const flipCardBackOne = document.querySelector('.flip-card-back-one')
+        let exerciseInfo = document.createElement('p')
+        exerciseInfo.textContent = exercise.info 
+        flipCardBackOne.append(exerciseInfo)
+        })
+
+        const workoutTitleTwo =  document.createElement('h1')
+        workoutTitleTwo.textContent = workouts[5].title 
+       const frontCardTwo = document.querySelector('.flip-card-front-two')
+       frontCardTwo.appendChild(workoutTitleTwo)
+        
 
         const workoutTwo = workouts.slice(5,10)
-        console.log(workoutTwo)
+        workoutTwo.map(exercise => {
+        let exerciseInfo = document.createElement('p')
+        exerciseInfo.textContent = exercise.info 
+        const flipCardBackTwo = document.querySelector('.flip-card-back-two')
+        flipCardBackTwo.append(exerciseInfo)
+        })
 
-        const workoutThree= workouts[10]
-        console.log(workoutThree)
+        const workoutTitleThree =  document.createElement('h1')
+        workoutTitleThree.textContent = workouts[10].title 
+       const frontCardThree = document.querySelector('.flip-card-front-three')
+       frontCardThree.appendChild(workoutTitleThree)
+        
+
+        const workoutThree = workouts[10]
+        let exerciseInfo = document.createElement('p')
+        exerciseInfo.textContent = workoutThree.info 
+        const flipCardBackThree = document.querySelector('.flip-card-back-three')
+        flipCardBackThree.append(exerciseInfo)
+        
+        
+
+        const workoutTitleFour =  document.createElement('h1')
+        workoutTitleFour.textContent = workouts[11].title 
+       const frontCardFour = document.querySelector('.flip-card-front-four')
+       frontCardFour.appendChild(workoutTitleFour)
 
         const workoutFour = workouts.slice(11,16)
         console.log(workoutFour)
+        workoutFour.map(exercise => {
+            console.log(exercise)
+        let exerciseInfo = document.createElement('p')
+        exerciseInfo.textContent = exercise.info 
+        console.log(exerciseInfo)
+        const flipCardBackFour = document.querySelector('.flip-card-back-four')
+        flipCardBackFour.append(exerciseInfo)
+        })
+        
 
-        const workoutFive = workouts.slice(16,21)
+        const workoutTitleFive =  document.createElement('h1')
+        workoutTitleFive.textContent = workouts[16].title 
+       const frontCardFive = document.querySelector('.flip-card-front-five')
+       frontCardFive.appendChild(workoutTitleFive)
+
+        const workoutFive = workouts.slice(16, (workouts.length))
+        console.log(workouts.length)
         console.log(workoutFive)
+        workoutFive.map(exercise => {
+            console.log(exercise)
+        let exerciseInfo = document.createElement('p')
+        exerciseInfo.textContent = exercise.info 
+        console.log(exerciseInfo)
+        const flipCardBackFive = document.querySelector('.flip-card-back-five')
+        flipCardBackFive.append(exerciseInfo)
+        })
     })
 
 })
