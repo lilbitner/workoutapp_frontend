@@ -1,7 +1,5 @@
  const createForm = document.querySelector('#login-create') 
- const loginForm = document.querySelector('#login')
  const signupUrl = "http://localhost:3000/users"
- const authUrl = "http://localhost:3000/login"
 
  createForm.addEventListener('submit', () => {
     event.preventDefault()
@@ -16,39 +14,20 @@
             "Content-Type": "application/json"
         },
         body: JSON.stringify({username, password})
-    }).then(response => { 
-        if(response.status >= 400) throw new Error("Bad Request")
-        window.location.href='index.html'
-    }).catch(error => console.error(error.message))
-}) 
-
-loginForm.addEventListener('submit', () => {
-    event.preventDefault()
-    const formData = new FormData(loginForm)
-    const username = formData.get('username')
-    const password = formData.get('password')
- 
-    fetch(authUrl, {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        }, 
-        body: JSON.stringify({username, password})
     }).then(response => response.json())
-   .then( window.location.href="page_1.html")
     .then(response => {
-        localStorage.setItem("token", response.token)
+        if (response.message == "User created") {   
+            let usernameCreation = document.createElement('h3')
+            usernameCreation.textContent = `Welcome to Euphoria, ${response.username}! Please login.` 
+            document.querySelector('#container').appendChild(usernameCreation)
+        } else {
+            let shortPassword = document.createElement('h3')
+            shortPassword.textContent = "Password must have 7 or more characters"
+            document.querySelector('#container').appendChild(shortPassword)
+        }
     })
-}) 
+})
 
-// const token = localStorage.getItem("token")
-
-// fetch('http://localhost:3000/users', {
-//     method: "GET", 
-//     headers: {
-//         "Authorization": `Bearer ${token}`
-//     }
-// })
 
 
 

@@ -49,7 +49,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(https://www.witcoinc.net/wp-content/uploads/2016/01/cloud-web-background.jpg)
+    padding-top: 6rem;
+    background-repeat: no-repeat;
+    background-size: 1000px 600px;
+    background-size: cover;
+    background-image: url(https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)
 }
 
 
@@ -57,6 +61,7 @@ h1#head-recipe{
     font-family: 'Simonetta';
     font-size: 35px;
     color: black;
+    padding-bottom: 2rem;
 }
 
 /* 
@@ -69,9 +74,9 @@ div.container {
 
 .card{
     border: solid;
-    border-color: gray;
-    border-radius: 17px;
+    border-radius: 10px;
     box-shadow: 0px 0px 8px;
+    border-color: white;
     width: 300px;
     height: 300px;
     display: flex;
@@ -79,28 +84,40 @@ div.container {
     justify-content: center;
     justify-content: space-evenly;
     align-items: center;
+    background-color: seashell;
 }
 
 #recipe-image {
     height: 120px;
     width: 120px;
     border: solid;
-    box-shadow: lightslategray;
+    box-shadow: 0px 0px 8px;
+    border-radius: 2rem;
+    border-color: #2a7886;
+}
+
+#card-title {
+    font-size: 15px;
+    text-align: center;
 }
 
 #card-instructions {
-    font-size: 10px;
+    font-size: 20px;
     font-family: 'Simonetta';
     font-style: italic;
+    text-align: center;
 }
 
 a.recipe-title {
     text-decoration: none;
+    border: solid;
+    border-color: lightseagreen;
     font-size: 10px;
     font-family: 'Simonetta';
 }
 .recipe-info {
     display: flex;
     justify-content: center;
+    font-family: 'Simonetta';
 }
 

@@ -1,10 +1,22 @@
-const searchParams = new URLSearchParams(document.location.search)
-const loginName = searchParams.get('username')
-console.log(loginName)
+const logout = document.createElement('button')
+logout.innerHTML = `
+<h4>Logout<h4>
+<onclick=  window.location.href='index.html''>  
+`
+logout.id = 'logoutClick'
+document.querySelector('#logoutButton').appendChild(logout)
 
-const webTitle = document.querySelector('#title')
-webTitle.innerHTML = `
-Welcome to Euphoria ${loginName}!<br> Lets reach your goals`
+logout.addEventListener('click', () => {
+    localStorage.clear()
+    document.location.href = 'login.html'
+})
+
+
+const loginName = window.localStorage.getItem("username")
+
+const webTitle = document.querySelector('#welcome-name')
+webTitle.innerHTML = ` 
+Welcome, ${loginName}!`
 
 
 const weatherForm = document.createElement('form')
@@ -83,9 +95,13 @@ goalForm.addEventListener('submit', () => {
 
     const formData = new FormData(goalForm)
     const goalInput = formData.get('goal')
-    // dayThreeWeather = document.querySelector('#box3#weather-info')
-    // const percipitation = dayThreeWeather.textContent.value 
-    // console.log(percipitation)
+
+    let weatherCollectionThree = document.getElementsByTagName('p1');
+    let weatherElementThree = weatherCollectionThree[2].innerText 
+
+    let weatherCollectionFive = document.getElementsByTagName('p1');
+    let weatherElementFive = weatherCollectionFive[4].innerText
+    
     workoutUrl = `http://localhost:3000/${goalInput}`
 
     fetch(workoutUrl, {
@@ -93,9 +109,8 @@ goalForm.addEventListener('submit', () => {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({goalInput})
+        body: JSON.stringify({weatherElementThreeKey: weatherElementThree, weatherElementFiveKey: weatherElementFive})
     }).then(response => response.json())
-    // .then(console.log)
     .then(workouts => {
        
         const workoutTitleOne =  document.createElement('h1')
@@ -147,12 +162,9 @@ goalForm.addEventListener('submit', () => {
        frontCardFour.appendChild(workoutTitleFour)
 
         const workoutFour = workouts.slice(11,16)
-        console.log(workoutFour)
         workoutFour.map(exercise => {
-            console.log(exercise)
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
-        console.log(exerciseInfo)
         const flipCardBackFour = document.querySelector('.flip-card-back-four')
         flipCardBackFour.append(exerciseInfo)
         })
@@ -164,16 +176,15 @@ goalForm.addEventListener('submit', () => {
        frontCardFive.appendChild(workoutTitleFive)
 
         const workoutFive = workouts.slice(16, (workouts.length))
-        console.log(workouts.length)
-        console.log(workoutFive)
         workoutFive.map(exercise => {
-            console.log(exercise)
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
-        console.log(exerciseInfo)
         const flipCardBackFive = document.querySelector('.flip-card-back-five')
         flipCardBackFive.append(exerciseInfo)
         })
     })
 
 })
+
+
+//save button to save workouts, add event listener to save button to post? to workouts and days? 
