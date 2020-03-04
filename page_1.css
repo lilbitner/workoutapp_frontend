@@ -62,13 +62,20 @@ table {
 nav {
     display: flex;
 	align-items: center;
-	background-color: #79bac1;
+	background-color: #2a7886;
 	justify-content: space-between;
+	justify-content: space-around;
 }
 /* #login:before {
 	content: 'Login';
 	font-size: 15px;
 } */
+
+#logoutClick {
+	border-radius: 10rem;
+	border-color:  #512b58;
+	font-family: 'Merriweather', serif;
+}
 
 h3{
 	font-family: 'Simonetta';
@@ -83,10 +90,18 @@ div#login {
 }
 
 h1#title {
-    font-size: 35px;
+    font-size: 50px;
     color: #f1f3f4;
-	font-family: 'Merriweather', serif;
+	font-family: 'Simonetta';
+	font-style: bold;
 }
+
+#welcome-name {
+	font-size: 25px;
+    color: #f1f3f4;
+	font-family: 'Simonetta';
+}
+
 
 h2 {
     font-family: 'Merriweather', serif;
@@ -317,17 +332,21 @@ main {
 	align-items: center;
 }
 
-#definitions {
+/* #definitions {
 	padding-right: 37rem;
-}
+} */
 
 #definition-button {
 	border: 1px solid #999;
-	width: 10rem;
-    height: 6rem;
+	width: 12rem;
+    height: 8rem;
     border-radius: 17px;
     background-color: #512b58;
 	box-shadow: 0px 0px 8px;
+}
+
+#definitions-rest {
+	padding-right: 5rem;
 }
 
 #submit_button_goal {
@@ -344,8 +363,8 @@ main {
   }
 
   #workoutOneRow, #workoutTwoRow, #workoutThreeRow, #workoutFourRow, #workoutFiveRow {
-	width: 100px;
-	height: 100px;
+	width: 200px;
+	height: 200px;
 	background: #79bac1;
 	position: relative;
   }
@@ -395,5 +414,6 @@ main {
   .flip-card-back-one, .flip-card-back-two, .flip-card-back-three, .flip-card-back-four, .flip-card-back-five {
 	transform: rotateY(180deg);
 	background-color: #512b58;
-  	color: white;
+	  color: white;
+	  font-size: 11px;
   }
