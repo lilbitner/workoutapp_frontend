@@ -29,10 +29,8 @@ document.querySelector('.weather-form').appendChild(weatherForm)
 
 weatherForm.addEventListener('submit', () => {
     event.preventDefault()
-    console.log(event)
     const formData = new FormData(weatherForm)
     const city = formData.get('city')
-    console.log(city)
 
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=034655c18b43d676c2ac0f170b031d32`)
     .then(response => response.json()) 
@@ -41,8 +39,7 @@ weatherForm.addEventListener('submit', () => {
 
     let weatherElementNumber = 0;
 
-    weatherArray.forEach(weatherElement => {
-        console.log(weatherElement) 
+    weatherArray.forEach(weatherElement => { 
         if (weatherElement.dt_txt.includes('12:00')) {
             ++weatherElementNumber;
             weatherElementNumber; 
@@ -57,19 +54,18 @@ weatherForm.addEventListener('submit', () => {
         
             weatherElement.weather.forEach(weather => 
             weatherContent = weather.description)
-            console.log(weatherContent)
             
-            let p1 = document.createElement('p1')
-            p1.id = "weather-info"
-            p1.textContent = weatherContent.toUpperCase()
-            document.querySelector(`#box${weatherElementNumber}`).appendChild(p1) 
+                    let p1 = document.createElement('p1')
+                    p1.id = "weather-info"
+                    p1.textContent = weatherContent.toUpperCase()
+                    document.querySelector(`#box${weatherElementNumber}`).appendChild(p1) 
 
-            let p2 = document.createElement('p2')
-            p2.id = "weather-temp"
-            const temp = weatherElement.main.temp 
-            const finalTemp = Math.trunc((temp - 272) * 1.8 + 32)
-            p2.innerHTML = `Average Temperature: ${finalTemp}`
-            document.querySelector(`#box${weatherElementNumber}`).appendChild(p2)
+                    let p2 = document.createElement('p2')
+                    p2.id = "weather-temp"
+                    const temp = weatherElement.main.temp 
+                    const finalTemp = Math.trunc((temp - 272) * 1.8 + 32)
+                    p2.innerHTML = `Average Temperature: ${finalTemp}`
+                    document.querySelector(`#box${weatherElementNumber}`).appendChild(p2)
             
             }else {
                 return 'false';
@@ -89,20 +85,37 @@ goalForm.innerHTML = `
 <input id='submit_button_goal' type="submit" name="Submit">
 `
 
-let exerciseIdArray = []
-let workoutIdArray = []
-i=0
+// // fetch('http:localhost:3000/days')
+// // .then(response => response.json)
+// // .then(days => days.filter(day => {
+//     day.user_id == localstorage.getitem('userId)}
+// let number = day.split_number.max 
+// if (number > 0 ){
+//             workoutNumberForm = document.createElement('form') 
+//             workoutNumberForm.innerHTML = `
+//             <select id=workoutNumber>
+//             <option value='Workout${number}'>Workout${number}</option> 
+//             `
+//             document.querySelector('.header-button').appendChild(workoutNumberForm)
+// } 
+// }))
+
+
+
+let exerciseWorkoutArray = []
+let workoutArray = []
+
 goalForm.addEventListener('submit', () => {
     
     event.preventDefault()
-    i++;
-    i;
-            workoutNumberForm = document.createElement('form') 
-            workoutNumberForm.innerHTML = `
-            <select id=workoutNumber>
-            <option value='Workout${i}'>Workout${i}</option> 
-            `
-            document.querySelector('.header-button').appendChild(workoutNumberForm)
+    // i++;
+    // i;
+    //         workoutNumberForm = document.createElement('form') 
+    //         workoutNumberForm.innerHTML = `
+    //         <select id=workoutNumber>
+    //         <option value='Workout${i}'>Workout${i}</option> 
+    //         `
+    //         document.querySelector('.header-button').appendChild(workoutNumberForm)
 
     const formData = new FormData(goalForm)
     const goalInput = formData.get('goal')
@@ -124,178 +137,162 @@ goalForm.addEventListener('submit', () => {
         },
         body: JSON.stringify({weatherElementThreeKey: weatherElementThree, weatherElementFiveKey: weatherElementFive})
     }).then(response => response.json())
-    .then(workouts => {
-        console.log(workouts)
+    .then(exercises => {
+        console.log(exercises)
 
         const workoutTitleOne =  document.createElement('h1')
-        workoutTitleOne.textContent = workouts[0].title 
+        workoutTitleOne.textContent = exercises[0].title 
        const frontCardOne = document.querySelector('.flip-card-front-one')
        frontCardOne.appendChild(workoutTitleOne)
 
     
-        const workoutOne = workouts.slice(0,5)
+        const workoutOne = exercises.slice(0,5)
         workoutOne.map((exercise) => {
         const flipCardBackOne = document.querySelector('.flip-card-back-one')
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
         flipCardBackOne.append(exerciseInfo);
-        exerciseInfo.setAttribute('exerciseId', `${exercise.id}`);
+        exerciseInfo.dataset.exerciseId = exercise.id 
+        exerciseInfo.dataset.workoutTitle = exercises[0].title 
         })
 
         const workoutTitleTwo =  document.createElement('h1')
-        workoutTitleTwo.textContent = workouts[5].title 
+        workoutTitleTwo.textContent = exercises[5].title 
        const frontCardTwo = document.querySelector('.flip-card-front-two')
        frontCardTwo.appendChild(workoutTitleTwo)
         
 
-        const workoutTwo = workouts.slice(5,10)
+        const workoutTwo = exercises.slice(5,10)
         workoutTwo.map((exercise) => {
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
         const flipCardBackTwo = document.querySelector('.flip-card-back-two')
         flipCardBackTwo.append(exerciseInfo)
-        exerciseInfo.setAttribute('exerciseId', `${exercise.id}`);
+        exerciseInfo.dataset.exerciseId = exercise.id 
+        exerciseInfo.dataset.workoutTitle = exercises[5].title 
         })
 
         const workoutTitleThree =  document.createElement('h1')
-        workoutTitleThree.textContent = workouts[10].title 
+        workoutTitleThree.textContent = exercises[10].title 
        const frontCardThree = document.querySelector('.flip-card-front-three')
        frontCardThree.appendChild(workoutTitleThree)
         
 
-        const workoutThree = workouts[10]
+        const workoutThree = exercises[10]
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = workoutThree.info 
-        i=10;
-        exerciseInfo.setAttribute('exerciseId', `${workoutThree.id}`);
+        exerciseInfo.dataset.exerciseId = workoutThree.id 
+        exerciseInfo.dataset.workoutTitle = exercises[10].title 
         const flipCardBackThree = document.querySelector('.flip-card-back-three')
         flipCardBackThree.append(exerciseInfo)
         
         
 
         const workoutTitleFour =  document.createElement('h1')
-        workoutTitleFour.textContent = workouts[11].title 
+        workoutTitleFour.textContent = exercises[11].title 
        const frontCardFour = document.querySelector('.flip-card-front-four')
        frontCardFour.appendChild(workoutTitleFour)
 
-        const workoutFour = workouts.slice(11,16)
+        const workoutFour = exercises.slice(11,16)
         workoutFour.map((exercise,i) => {
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
         const flipCardBackFour = document.querySelector('.flip-card-back-four')
         flipCardBackFour.append(exerciseInfo)
-        exerciseInfo.setAttribute('exerciseId', `${exercise.id}`);
+        exerciseInfo.dataset.exerciseId = exercise.id 
+        exerciseInfo.dataset.workoutTitle = exercises[11].title 
         })
         
 
         const workoutTitleFive =  document.createElement('h1')
-        workoutTitleFive.textContent = workouts[16].title 
+        workoutTitleFive.textContent = exercises[16].title 
        const frontCardFive = document.querySelector('.flip-card-front-five')
        frontCardFive.appendChild(workoutTitleFive)
 
-        const workoutFive = workouts.slice(16, (workouts.length))
+        const workoutFive = exercises.slice(16, (exercises.length))
         workoutFive.map((exercise,i) => {
         let exerciseInfo = document.createElement('p')
         exerciseInfo.textContent = exercise.info 
         const flipCardBackFive = document.querySelector('.flip-card-back-five')
         flipCardBackFive.append(exerciseInfo)
-        exerciseInfo.setAttribute('exerciseId', `${exercise.id}`);
+        exerciseInfo.dataset.exerciseId = exercise.id 
+        exerciseInfo.dataset.workoutTitle = exercises[16].title 
         })
 
                         let exerciseIdAttribute = document.getElementsByTagName('p')
-                        console.log(exerciseIdAttribute)
-                        let idArray = Array.from(exerciseIdAttribute)
-                        console.log(idArray)
-                        // exerciseIdArray = []
-                        console.log(idArray.map(tag => {
-                            exerciseIdArray.push(tag.attributes.exerciseid.value)
-                        //  .getAttribute('exerciseid')
-                        }))
-                        console.log(exerciseIdArray)
+                        let pTagArray = Array.from(exerciseIdAttribute)
+                        pTagArray.map(tag => {
+                            exerciseWorkoutArray.push({exerciseId: tag.dataset.exerciseId, workoutTitle: tag.dataset.workoutTitle})
+                            return tag 
 
-                        // workoutIdArray = []
-                        workouts.map(exercise => {
-                            if (exercise.title == "Leg Day") 
-                                    {let workoutId = 1 
-                                        workoutIdArray.push(workoutId)
-                                    }
-                        else if (exercise.title == "Upper Body Day") 
-                                    {let workoutId = 2
-                                        workoutIdArray.push(workoutId)
-                                    } 
-                        else if (exercise.title == "Low Intensity Steady State Training") 
-                                    {let workoutId = 3
-                                        workoutIdArray.push(workoutId)
-                                    } 
-                        else if (exercise.title == "High Intensity Interval Training") 
-                                    {let workoutId = 4
-                                        workoutIdArray.push(workoutId)
-                                    } 
-                        else if (exercise.title == "Cardio Training") 
-                                    {let workoutId = 5
-                                        workoutIdArray.push(workoutId)
-                                    } 
+
                         })
-                        console.log(workoutIdArray)
-
-})
+                        console.log('combinationarray', exerciseWorkoutArray)
+                        
+                       
+    })
 }) 
 
 
 
- 
- function workoutId() {
-    let workoutTitles = document.getElementsByTagName('h1'); 
-    console.log(workoutTitles)
-    
-     let workoutTitleObjectFour = workoutTitles[11].innerText 
-     console.log(workoutTitleObjectFour)
-     let workoutTitleObjectFive = workoutTitles[12].innerText 
-
-        if (workoutTitleObjectFour == "HIIT") 
-            {workoutId4 = 4} else {workoutId4 = 1}
-        console.log(workoutId4)
-        if (workoutTitleObjectFive == "Cardio") 
-        {workoutId5 = 5} else {workoutId5 = 2}
-        console.log(workoutId5)
-        return {workoutId4, workoutId5}
- }
 
 const saveButton = document.querySelector('#save')
 const dayURL = "http://localhost:3000/days"
 const combinationURL = "http://localhost:3000/combinations"
-let userId = localStorage.getItem('user_id')
+let userId = localStorage.getItem('userId')
 
 splitNumber = 0 
 saveButton.addEventListener('click', () => {
         splitNumber++; 
         splitNumber;
-      
-        workoutId();
+        
+        
+    let exerciseIdAttribute = document.getElementsByTagName('p')
+    let pTagArray = Array.from(exerciseIdAttribute)
+    pTagArray.map((tag, i) => {
+        switch (i) {
+            case i<=4: 
+            workoutArray.push({user_id: userId, day_name: 'Day 1', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            break;
+            case 4<i<=9:
+                workoutArray.push({user_id: userId, day_name: 'Day 2', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            break;
+            case i=10:
+                workoutArray.push({user_id: userId, day_name: 'Day 3', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            break;
+            case 10<i<=15: 
+            workoutArray.push({user_id: userId, day_name: 'Day 4', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            break;
+            case i>15: 
+            workoutArray.push({user_id: userId, day_name: 'Day 5', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+        }
+        // workoutArray.push({user_id: userId, day_name: `Day ${i}`, workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber})
+        return tag 
+        })
+
+
+    // }}))
+console.log('dayarray', workoutArray)
 
         fetch(dayURL, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({user_id: userId,  workout_id: 1, day_name: "Day One", split_number: splitNumber}, {user_id:userId,  workout_id: 2, day_name: "Day Two", split_number: splitNumber}, {user_id: userId,  workout_id: 3, day_name: "Day Three", split_number: splitNumber}, {user_id: userId, workout_id: workoutId4, day_name: "Day Four", split_number: splitNumber}, {user_id: userId, workout_id: workoutId5, day_name: "Day Five", split_number: splitNumber})
-        })
+                body: JSON.stringify({workoutArrayKey: workoutArray})
+        }).then(response => response.json())
+        .then(console.log)
         fetch(combinationURL, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify({workoutIdArrayKey: workoutIdArray, exerciseIdArrayKey: exerciseIdArray}) 
-                })
+                    body: JSON.stringify({exerciseWorkoutArrayKey: exerciseWorkoutArray}) 
+        }).then(response => response.json())
+        .then(console.log)
     })
 
     
-// fetch()
-//     workoutNumberForm = document.createElement('form') 
-//         workoutNumberForm.innerHTML = `
-//         <select id=workoutNumber>
-//         <option value='Workout${splitNumber}'>Workout${splitNumber}</option> 
-//         `
-//         document.querySelector('#save').appendChild(workoutNumberForm)
+
 
     

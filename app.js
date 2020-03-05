@@ -7,6 +7,7 @@
     const formData = new FormData(createForm)
     const username = formData.get('username')
     const password = formData.get('password')
+    createForm.reset()
  
     fetch(signupUrl, {
         method: 'POST',
@@ -26,6 +27,7 @@
             let shortPassword = document.createElement('h3')
             shortPassword.textContent = "Password must have 7 or more characters"
             document.querySelector('#container').appendChild(shortPassword)
+            
         }
     })
 })

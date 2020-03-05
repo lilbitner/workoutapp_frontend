@@ -6,6 +6,7 @@ loginForm.addEventListener('submit', () => {
     const formData = new FormData(loginForm)
     const username = formData.get('username')
     const password = formData.get('password')
+    loginForm.reset()
  
     fetch(authUrl, {
         method: 'POST',
@@ -19,12 +20,14 @@ loginForm.addEventListener('submit', () => {
             let wrongPassword = document.createElement('h3')
             wrongPassword.textContent = "Invalid username or password, please try again"
             document.body.appendChild(wrongPassword)
+           
             // window.location.href='login.html'
         } else if  
             (response.message == "Wrong user credentials") {
                 let wrongPassword = document.createElement('h3')
                 wrongPassword.textContent = "Invalid username or password, please try again"
                 document.body.appendChild(wrongPassword)
+               
         } else {
         
         localStorage.setItem("token", response.token)

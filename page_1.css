@@ -81,6 +81,7 @@ nav {
 h3{
 	font-family: 'Simonetta';
 	font-size: 15px;
+	color: #f1f3f4;
 }
 div#login {
     display: flex;
@@ -120,6 +121,21 @@ h2 {
 	box-shadow: lightsteelblue;
 	border-style: inherit;
 	border-radius: 50%;
+}
+
+#about-button {
+	border: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 17px;
+    background-color: #512b58;
+	box-shadow: 0px 0px 8px;
+	text-decoration: none;
 }
 
 #recipe-button {
