@@ -16,11 +16,13 @@
         body: JSON.stringify({username, password})
     }).then(response => response.json())
     .then(response => {
-        if (response.message == "User created") {   
+        if (response.user) {
+
             let usernameCreation = document.createElement('h3')
-            usernameCreation.textContent = `Welcome to Euphoria, ${response.username}! Please login.` 
-            document.querySelector('#container').appendChild(usernameCreation)
+                usernameCreation.textContent = `Welcome to Euphoria, ${response.user.username}! Please login.` 
+                document.querySelector('#container').appendChild(usernameCreation)
         } else {
+              
             let shortPassword = document.createElement('h3')
             shortPassword.textContent = "Password must have 7 or more characters"
             document.querySelector('#container').appendChild(shortPassword)

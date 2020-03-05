@@ -33,21 +33,8 @@ loginForm.addEventListener('submit', () => {
         window.location.href="page_1.html"
     }
     })
-    // .then(window.location.href="page_1.html")
+   
 }) 
 
 
-     // if (response.message == "Wrong user credentials"){
-        // const wrongUsername = document.createElement(h3) 
-        // wrongUsername.textContent = response.message 
-        // document.appendChild(wrongUsername)
-
-        // // } 
-        // else if (response.message == "Wrong Password") {
-        // const wrongPassword = document.createElement(h3) 
-        // wrongPassword.textContent = response.message 
-        // document.appendChild(wrongPassword)
-        // }
-        // else {
-            // console.log(response)
-        // console.log(response.message)
+    
