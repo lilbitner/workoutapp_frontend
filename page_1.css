@@ -75,6 +75,7 @@ nav {
 	border-radius: 10rem;
 	border-color:  #512b58;
 	font-family: 'Merriweather', serif;
+	box-shadow: 0px 0px 8px;
 }
 
 h3{
@@ -302,8 +303,8 @@ main {
 	  font-size: 30px;
 	  font-family: 'Simonetta';
 	  text-align: center;
-	  padding-top: 5rem;
-	  padding-bottom: 2rem;
+	  /* padding-top: 5rem;
+	  padding-bottom: 2rem; */
   }
   table, th, td {
 	border: 1px solid black;
@@ -353,6 +354,23 @@ main {
 	font-family: 'Simonetta';
 	border: solid;
   }
+.header-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: space-evenly;
+	 padding-top: 5rem;
+	  padding-bottom: 2rem;
+	  font-family: 'Simonetta';
+}
+#save{
+	border: solid;
+	border-color:  #512b58;
+	box-shadow: 0px 0px 8px;
+
+}
+
+
 
   #workouts {
 	padding-bottom: 10rem;

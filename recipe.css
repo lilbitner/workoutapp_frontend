@@ -72,7 +72,7 @@ div.container {
 } */
 
 
-.card{
+#card{
     border: solid;
     border-radius: 10px;
     box-shadow: 0px 0px 8px;
@@ -111,7 +111,7 @@ div.container {
 a.recipe-title {
     text-decoration: none;
     border: solid;
-    border-color: lightseagreen;
+    border-color: #79bac1;
     font-size: 10px;
     font-family: 'Simonetta';
 }
@@ -119,5 +119,11 @@ a.recipe-title {
     display: flex;
     justify-content: center;
     font-family: 'Simonetta';
+}
+
+.recipe-title {
+    border: solid;
+    border-radius: 5rem;
+    border-color: #79bac1;
 }
 
