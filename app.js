@@ -25,7 +25,8 @@
         } else {
               
             let shortPassword = document.createElement('h3')
-            shortPassword.textContent = "Password must have 7 or more characters"
+            shortPassword.textContent = "Password must have 7 or more characters, please try again"
+            shortPassword.id = 'password-message'
             document.querySelector('#container').appendChild(shortPassword)
             
         }
