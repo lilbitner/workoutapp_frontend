@@ -102,10 +102,10 @@ createWeatherForm()
 // .then(response => response.json())
 // .then(console.log)
 
-fetch(`http://localhost:3000/users/id=${userId}`)
-// `http:localhost:3000/users/id=${userId}`
-.then(response => response.json())
-.then(console.log)
+// fetch(`http://localhost:3000/users/id=${userId}`)
+// // `http:localhost:3000/users/id=${userId}`
+// .then(response => response.json())
+// .then(console.log)
 // .then(days => days.filter(day => {
 //     day.user_id == localstorage.getitem('userId)
 // let number = day.split_number.max 
@@ -121,14 +121,6 @@ fetch(`http://localhost:3000/users/id=${userId}`)
     goalForm.addEventListener('submit', () => {
         
         event.preventDefault()
-        // i++;
-        // i;
-        //         workoutNumberForm = document.createElement('form') 
-        //         workoutNumberForm.innerHTML = `
-        //         <select id=workoutNumber>
-        //         <option value='Workout${i}'>Workout${i}</option> 
-        //         `
-        //         document.querySelector('.header-button').appendChild(workoutNumberForm)
 
         const formData = new FormData(goalForm)
         const goalInput = formData.get('goal')
@@ -166,7 +158,12 @@ fetch(`http://localhost:3000/users/id=${userId}`)
                         exerciseInfo.textContent = exercise.info 
                         flipCardBackOne.append(exerciseInfo);
                         exerciseInfo.dataset.exerciseId = exercise.id 
-                        exerciseInfo.dataset.workoutTitle = exercises[0].title 
+                        exerciseInfo.dataset.workoutId = exercise.workout_id  
+                        exerciseInfo.dataset.title = exercise.title 
+                        exerciseInfo.dataset.place = exercise.place 
+                        exerciseInfo.dataset.category = exercise.category
+                        exerciseInfo.dataset.bodyPart = exercise.body_part 
+                        exerciseInfo.dataset.info = exercise.info 
                     })
 
                     const workoutTitleTwo =  document.createElement('h1')
@@ -182,7 +179,12 @@ fetch(`http://localhost:3000/users/id=${userId}`)
                         const flipCardBackTwo = document.querySelector('.flip-card-back-two')
                         flipCardBackTwo.append(exerciseInfo)
                         exerciseInfo.dataset.exerciseId = exercise.id 
-                        exerciseInfo.dataset.workoutTitle = exercises[5].title 
+                        exerciseInfo.dataset.workoutId = exercise.workout_id 
+                        exerciseInfo.dataset.title = exercise.title 
+                        exerciseInfo.dataset.place = exercise.place 
+                        exerciseInfo.dataset.category = exercise.category
+                        exerciseInfo.dataset.bodyPart = exercise.body_part 
+                        exerciseInfo.dataset.info = exercise.info 
                     })
 
                     const workoutTitleThree =  document.createElement('h1')
@@ -195,7 +197,12 @@ fetch(`http://localhost:3000/users/id=${userId}`)
                     let exerciseInfo = document.createElement('p')
                     exerciseInfo.textContent = workoutThree.info 
                     exerciseInfo.dataset.exerciseId = workoutThree.id 
-                    exerciseInfo.dataset.workoutTitle = exercises[10].title 
+                    exerciseInfo.dataset.workoutId = workoutThree.workout_id 
+                    exerciseInfo.dataset.title = workoutThree.title 
+                    exerciseInfo.dataset.place = workoutThree.place 
+                    exerciseInfo.dataset.category = workoutThree.category
+                    exerciseInfo.dataset.bodyPart = workoutThree.body_part 
+                    exerciseInfo.dataset.info = workoutThree.info 
                     const flipCardBackThree = document.querySelector('.flip-card-back-three')
                     flipCardBackThree.append(exerciseInfo)
                         
@@ -213,7 +220,12 @@ fetch(`http://localhost:3000/users/id=${userId}`)
                         const flipCardBackFour = document.querySelector('.flip-card-back-four')
                         flipCardBackFour.append(exerciseInfo)
                         exerciseInfo.dataset.exerciseId = exercise.id 
-                        exerciseInfo.dataset.workoutTitle = exercises[11].title 
+                        exerciseInfo.dataset.workoutId = exercise.workout_id 
+                        exerciseInfo.dataset.title = exercise.title 
+                        exerciseInfo.dataset.place = exercise.place 
+                        exerciseInfo.dataset.category = exercise.category
+                        exerciseInfo.dataset.bodyPart = exercise.body_part 
+                        exerciseInfo.dataset.info = exercise.info  
                     })
                         
 
@@ -229,22 +241,45 @@ fetch(`http://localhost:3000/users/id=${userId}`)
                         const flipCardBackFive = document.querySelector('.flip-card-back-five')
                         flipCardBackFive.append(exerciseInfo)
                         exerciseInfo.dataset.exerciseId = exercise.id 
-                        exerciseInfo.dataset.workoutTitle = exercises[16].title 
+                        exerciseInfo.dataset.workoutId = exercise.workout_id 
+                        exerciseInfo.dataset.title = exercise.title 
+                        exerciseInfo.dataset.place = exercise.place 
+                        exerciseInfo.dataset.category = exercise.category
+                        exerciseInfo.dataset.bodyPart = exercise.body_part 
+                        exerciseInfo.dataset.info = exercise.info 
                     })
 
-                    let exerciseIdAttribute = document.getElementsByTagName('p')
-                    let pTagArray = Array.from(exerciseIdAttribute)
+                    let exerciseAttributes = document.getElementsByTagName('p')
+                    let pTagArray = Array.from(exerciseAttributes)
                     pTagArray.map(tag => {
-                        exerciseWorkoutArray.push({exerciseId: tag.dataset.exerciseId, workoutTitle: tag.dataset.workoutTitle})
+                        exerciseWorkoutArray.push({workoutId: tag.dataset.workoutId, 
+                            exerciseTitle: tag.dataset.title, exercisePlace: tag.dataset.place, exerciseCategory: tag.dataset.category,
+                             exerciseBodyPart: tag.dataset.bodyPart, exerciseInfo: tag.dataset.info})
                         return tag 
 
 
                     })
-                    console.log('combinationarray', exerciseWorkoutArray)
+                    console.log('exercisearray', exerciseWorkoutArray)
                         
                        
         })
     }) 
+
+const splitNameForm = document.createElement('form')
+splitNameForm.id = 'split-title'
+splitNameForm.innerHTML = `
+    <input id='split' type='text' name='split-name' placeholder= 'Name of workout split'>
+    <input id='split-button' type="submit" value="Save Split">`
+document.querySelector('.save-split').appendChild(splitNameForm)
+
+const searchWorkoutForm = document.createElement('form')
+searchWorkoutForm.id = 'search-workout'
+searchWorkoutForm.innerHTML = `
+    <input id='split' type='text' name='split-name' placeholder='Name of last workout'>
+    <input id='split' type='text' name='goal' placeholder='Bulk or Cut?'>
+    <input id='split-button' type='submit' value='Find Workout'>`
+document.querySelector('.save-split').appendChild(searchWorkoutForm)
+
 
 
 
@@ -252,14 +287,15 @@ fetch(`http://localhost:3000/users/id=${userId}`)
 
 const saveButton = document.querySelector('#save')
 const dayURL = "http://localhost:3000/days"
-const combinationURL = "http://localhost:3000/combinations"
-// let userId = localStorage.getItem('userId')
+const exerciseURL = "http://localhost:3000/exercises"
 
-splitNumber = 0 
-saveButton.addEventListener('click', () => {
-        splitNumber++; 
-        splitNumber;
-        
+splitNameForm.addEventListener('submit', () => {
+   
+    
+    event.preventDefault()
+    const formData = new FormData(splitNameForm)
+    const splitInput = formData.get('split-name')
+    splitNameForm.reset()
         
     let exerciseIdAttribute = document.getElementsByTagName('p')
     let pTagArray = Array.from(exerciseIdAttribute)
@@ -267,23 +303,24 @@ saveButton.addEventListener('click', () => {
 
         switch(true) {
             case (i<=4): 
-            workoutArray.push({user_id: userId, day_name: 'Day 1', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            workoutArray.push({user_id: userId, day_name: 'Day 1', workoutId: tag.dataset.workoutId, split_number: splitInput});
             break;
             case (i>4 && i<=9):
-               workoutArray.push({user_id: userId, day_name: 'Day 2', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+               workoutArray.push({user_id: userId, day_name: 'Day 2', workoutId: tag.dataset.workoutId, split_number: splitInput});
             break;
             case (i==10):
-                 workoutArray.push({user_id: userId, day_name: 'Day 3', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+                 workoutArray.push({user_id: userId, day_name: 'Day 3', workoutId: tag.dataset.workoutId, split_number: splitInput});
             break;
             case (i>10 && i<=15): 
-            workoutArray.push({user_id: userId, day_name: 'Day 4', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            workoutArray.push({user_id: userId, day_name: 'Day 4', workoutId: tag.dataset.workoutId, split_number: splitInput});
             break;
             case (i>15): 
-            workoutArray.push({user_id: userId, day_name: 'Day 5', workoutTitle: tag.dataset.workoutTitle, split_number: splitNumber});
+            workoutArray.push({user_id: userId, day_name: 'Day 5', workoutId: tag.dataset.workoutId, split_number: splitInput});
             default: 
         }
         return tag 
-    })
+    
+})
 
 
 console.log('dayarray', workoutArray)
@@ -296,17 +333,167 @@ console.log('dayarray', workoutArray)
                 body: JSON.stringify({workoutArrayKey: workoutArray})
         }).then(response => response.json())
         .then(console.log('day return'))
-        fetch(combinationURL, {
+        fetch(exerciseURL, {
                     method: 'POST',
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({exerciseWorkoutArrayKey: exerciseWorkoutArray}) 
         }).then(response => response.json())
-        .then(console.log('combination return'))
+        .then(console.log('exercise return'))
+})
+
+searchWorkoutForm.addEventListener('submit', () => {
+   
+    
+    event.preventDefault()
+    const formData = new FormData(searchWorkoutForm)
+    const searchWorkoutInput = formData.get('split-name')
+    const goalSearchInput = formData.get('goal')
+    searchWorkoutForm.reset()
+    console.log(searchWorkoutInput)
+    console.log(event)
+
+    fetch(`http://localhost:3000/users/id=${userId}`)
+    .then(response => response.json())
+    // .then(console.log)
+    .then(userObject => {
+        const daysArray = userObject.days
+    console.log(daysArray)
+    frontCardTitle = []
+    daysArray.map(day => {
+     workoutTitle = day.workout.title
+     frontCardTitle.push(workoutTitle)
     })
 
+    const workoutTitleOne =  document.createElement('h1')
+    workoutTitleOne.id = 'one'
+    workoutTitleOne.textContent = frontCardTitle[0]  
+    const frontCardOne = document.querySelector('.flip-card-front-one')
+    frontCardOne.appendChild(workoutTitleOne) 
+
+    const workoutTitleTwo =  document.createElement('h1')
+    workoutTitleTwo.id = 'two'
+    workoutTitleTwo.textContent = frontCardTitle[5] 
+    const frontCardTwo = document.querySelector('.flip-card-front-two')
+    frontCardTwo.appendChild(workoutTitleTwo)
+
+    const workoutTitleThree =  document.createElement('h1')
+    workoutTitleThree.id = 'three'
+    workoutTitleThree.textContent = frontCardTitle[10] 
+    const frontCardThree = document.querySelector('.flip-card-front-three')
+    frontCardThree.appendChild(workoutTitleThree)
+
+    const workoutTitleFour =  document.createElement('h1')
+    workoutTitleFour.id = 'four'
+    workoutTitleFour.textContent = frontCardTitle[11]
+    const frontCardFour = document.querySelector('.flip-card-front-four')
+    frontCardFour.appendChild(workoutTitleFour)
+
+    const workoutTitleFive =  document.createElement('h1')
+    workoutTitleFive.id = 'five'
+    workoutTitleFive.textContent = frontCardTitle[16]
+    const frontCardFive = document.querySelector('.flip-card-front-five')
+    frontCardFive.appendChild(workoutTitleFive)
+    workoutArray =[]
+    daysArray.map(day => {
+        workoutElement = day.workout.exercises 
+        workoutArray.push(workoutElement)
+    }) 
+
+
+
+    // console.log(workoutArray)
+    const arrayExercise = workoutArray[0] 
+
+   const workoutArrayOfInterestBulk = [workoutArray[0], workoutArray[5], workoutArray[11],  workoutArray[16] ]
+   const workoutArrayofInterestBulkSingle = [workoutArray[10]]
+   const workoutArrayofInterestCut = [workoutArray[0], workoutArray[5], workoutArray[11]]
+   const workoutArrayofInterestCutSingle = [workoutArray[10], workoutArray[16]]
+//    console.log('workoutArrayOfInterestBulk', workoutArrayOfInterestBulk)
+
+//    console.log('slicing', arrayExercise.slice(Math.max(arrayExercise.length -5, 0)))
+
+
+    let arrayIWant = ( workoutArrayOfInterestBulk.map(workout => { return workout.slice(Math.max(workout.length -5, 0))}))
+    let arrayIWantTwo = ( workoutArrayofInterestBulkSingle.map(workout => { return workout.slice(Math.max(workout.length -1, 0))}))
+    console.log(arrayIWantTwo)
+
+    arrayIWantTwo.map(workout => {
+        console.log(workout)
+        workout.map(exercise => {
+            let exerciseInfoFive = document.createElement('p')
+            exerciseInfoFive.textContent = exercise.info 
+            console.log(exercise.info)
+            const flipCardBackThree = document.querySelector('.flip-card-back-three')
+            flipCardBackThree.append(exerciseInfoFive);
+        }) 
+    })
+
+
     
+    // console.log('arrayIwant', arrayIWant)
+
+    arrayIWant.map((workout,i) => {
+        console.log(workout)
+    switch(true) {
+        case (i==0):
+        workout.map(exercise => {
+            let exerciseInfoOne = document.createElement('p')
+            exerciseInfoOne.textContent = exercise.info 
+            console.log(exercise.info)
+            const flipCardBackOne = document.querySelector('.flip-card-back-one')
+            flipCardBackOne.append(exerciseInfoOne);   
+        })   
+        break;
+        case (i==1):
+        workout.map(exercise => {
+            let exerciseInfoTwo = document.createElement('p')
+            exerciseInfoTwo.textContent = exercise.info 
+            const flipCardBackTwo = document.querySelector('.flip-card-back-two')
+            flipCardBackTwo.append(exerciseInfoTwo);
+        })
+        break;
+        case (i==2):
+        workout.map(exercise => {
+            let exerciseInfoThree = document.createElement('p')
+            exerciseInfoThree.textContent = exercise.info 
+            const flipCardBackFour = document.querySelector('.flip-card-back-four')
+            flipCardBackFour.append(exerciseInfoThree);
+        })
+        break;
+        case (i==3):
+        workout.map(exercise => {
+            let exerciseInfoFour = document.createElement('p')
+            exerciseInfoFour.textContent = exercise.info  
+            const flipCardBackFive = document.querySelector('.flip-card-back-five')
+            flipCardBackFive.append(exerciseInfoFour);
+        })
+        default: 
+    }
+    })
+    
+   
+})
+})
+   
+
+
+
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+  
 
 
     
