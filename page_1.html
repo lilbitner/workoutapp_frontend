@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="page_1.css" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Simonetta&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Main Page</title>
 </head>
 <div class="docScroller">
     <div class='page-one'>
@@ -36,10 +36,8 @@
             </nav>
             <h1 id='weather-grid-title'>Weather Information</h1>
             <hr></hr>
-
             <main class='weather-data'>
                 <div class='weather-form'></div>
-
                 <div class="wrapper">
                     <div id='box1'></div>
                     <div id='box2'></div>
@@ -78,7 +76,7 @@
             <table style='width:100%' id="workouts">
             <div class='header-button'> 
                 <header id='table-title'>Your Customized Workouts </header>
-                <button id='save'>Save Workouts</button>
+                <div class = 'save-split'></div>
             </div>
                 <tr>
                     <th id='tableDay1'>Day One</th>
@@ -87,20 +85,12 @@
                     <th id='tableDay4'>Day Four</th>
                     <th id='tableDay5'>Day Five</th>
                 </tr> 
-                <!-- <tr>
-                    <td id="day-one"></td>
-                    <td id="day-two"></td>
-                    <td id="day-three"></td>
-                    <td id="day-four"></td>
-                    <td id="day-five"></td>
-                </tr> -->
                 <tr>
                     <td id="workoutOneRow">
                         <div id="workout-box-one" ontouchstart="this.classList.toggle('hover');">
                             <div class="flip-card-inner"> 
-                                <div class ="flip-card-front-one"> 
-                                </div>
-                                <div class="flip-card-back-one">
+                                <div id ="flip-card-front0"> </div>
+                                <div class="flip-card-back0">
                                     <h1></h1>
                                 </div>
                             </div>
@@ -109,9 +99,8 @@
                     <td id="workoutTwoRow">
                         <div id="workout-box-two" ontouchstart="this.classList.toggle('hover');">
                             <div class="flip-card-inner"> 
-                                <div class ="flip-card-front-two"> 
-                                </div>
-                                <div class="flip-card-back-two">
+                                <div id ="flip-card-front1"> </div>
+                                <div class="flip-card-back1">
                                     <h1></h1>
                                 </div>
                             </div>
@@ -120,9 +109,8 @@
                     <td id="workoutThreeRow">
                         <div id="workout-box-three" ontouchstart="this.classList.toggle('hover');">
                             <div class="flip-card-inner"> 
-                                <div class ="flip-card-front-three"> 
-                                </div>
-                                <div class="flip-card-back-three">
+                                <div id ="flip-card-front2"> </div>
+                                <div class="flip-card-back2">
                                     <h1></h1>
                                 </div>
                             </div>
@@ -131,9 +119,8 @@
                     <td id="workoutFourRow">
                         <div id="workout-box-four" ontouchstart="this.classList.toggle('hover');">
                             <div class="flip-card-inner"> 
-                                <div class ="flip-card-front-four"> 
-                                </div>
-                                <div class="flip-card-back-four">
+                                <div id ="flip-card-front3"> </div>
+                                <div class="flip-card-back3">
                                     <h1></h1>
                                 </div>
                             </div>
@@ -142,9 +129,8 @@
                     <td id="workoutFiveRow">
                         <div id="workout-box-five" ontouchstart="this.classList.toggle('hover');">
                             <div class="flip-card-inner"> 
-                                <div class ="flip-card-front-five"> 
-                                </div>
-                                <div class="flip-card-back-five">
+                                <div id ="flip-card-front4"> </div>
+                                <div class="flip-card-back4">
                                     <h1></h1>
                                 </div>
                             </div>
@@ -152,14 +138,8 @@
                     </td>
                 </tr>
             </table>
-
         </body>
     </div> 
-
-    
-    
-
-
     <script src='page_1.js'></script>
 </div>
 </html>

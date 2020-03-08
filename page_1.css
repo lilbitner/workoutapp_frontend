@@ -1,8 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +18,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -66,10 +61,7 @@ nav {
 	justify-content: space-between;
 	justify-content: space-around;
 }
-/* #login:before {
-	content: 'Login';
-	font-size: 15px;
-} */
+
 
 #logoutClick {
 	border-radius: 10rem;
@@ -83,6 +75,7 @@ h3{
 	font-size: 15px;
 	color: #f1f3f4;
 }
+
 div#login {
     display: flex;
 	flex-direction: column;
@@ -104,14 +97,13 @@ h1#title {
 	font-family: 'Simonetta';
 }
 
-
+/* 
 h2 {
     font-family: 'Merriweather', serif;
-}
+} */
 
 #submit {
 	width: 150px;
-	
 }
 
 
@@ -159,33 +151,26 @@ h2 {
 }
 
 main {
-  
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	/* justify-content: space-between; */
-	/* align-items: center; */
 	padding-top: 5rem;
 	overflow-y: scroll;
-	/* justify-content: flex-end; */
 }
 
 .wrapper {
 	display: grid;
 	grid-template-columns: 200px 200px 200px;
   	grid-gap: 20px;
-  }
+}
 
-  #submit_button_weather {
+#submit_button_weather {
 	font-family: 'Simonetta';
 	border: solid;
-  }
+}
 
-  
-
-
-  #box1{
+#box1{
 	border: solid;
 	border-radius: 5px;
 	padding: 20px;
@@ -195,27 +180,10 @@ main {
 	flex-direction: column;
 	align-items: flex-start;
 	box-shadow: 0px 0px 8px;
-	background-color: lightgray;
-	/* font-size: 20px; */
-	
-  }
+	background-color: lightgray;	
+}
 
-  #box2{
-	border: solid;
-	border-radius: 5px;
-	padding: 20px;
-	font-size: 75%;
-	font-family: 'Simonetta';
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-items: flex-start;
-	box-shadow: 0px 0px 8px;
-	background-color: lightgray;
-	/* font-size: 20px; */
-  }
-
-  #box3{
+#box2{
 	border: solid;
 	border-radius: 5px;
 	padding: 20px;
@@ -227,10 +195,9 @@ main {
 	align-items: flex-start;
 	box-shadow: 0px 0px 8px;
 	background-color: lightgray;
-	/* font-size: 20px; */
-  }
+}
 
-  #box4{
+#box3{
 	border: solid;
 	border-radius: 5px;
 	padding: 20px;
@@ -242,10 +209,9 @@ main {
 	align-items: flex-start;
 	box-shadow: 0px 0px 8px;
 	background-color: lightgray;
-	/* font-size: 20px; */
-  }
+}
 
-  #box5{
+#box4{
 	border: solid;
 	border-radius: 5px;
 	padding: 20px;
@@ -257,101 +223,91 @@ main {
 	align-items: flex-start;
 	box-shadow: 0px 0px 8px;
 	background-color: lightgray;
-	/* font-size: 20px; */
-  }
+}
+
+#box5{
+	border: solid;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 75%;
+	font-family: 'Simonetta';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-items: flex-start;
+	box-shadow: 0px 0px 8px;
+	background-color: lightgray;
+}
+
 .weather-data {
 	display: flex;
 	align-items: center;
 	padding-bottom: 10rem;
-
 }
 
 #weather-grid-title {
-	/* padding-left: 22rem; */
 	text-align: center;
 	padding-top: 3rem;
 	font-family: 'Simonetta';
 	font-size: 25px;
 }
 
-  h1#weather_date{
+#weather_date{
 	font-size: 20px;
 	color: salmon;
 	font-style: italic;
-  }
+}
 
-  #weather-form-input{
+#weather-form-input{
 	 border: 5px solid;
 	 border-color: #512b58;
 	 box-shadow: steelblue;
 	 font-family: 'Simonetta';
-  }
-#form-title{
+}
+
+#form-title {
 	font-family: 'Simonetta';
 	font-size: 20px;
 	text-align: center;
 }
-  #weather-form {
+
+#weather-form {
 	font-family: 'Simonetta';
 	padding-left: 1rem;
-  }
+}
 
-  #weather-info{ 
+#weather-info{ 
 	 font-size: 20px;
 	 color: #2a7886;
-  }
+}
 
-  #weather-temp{
+#weather-temp{
 	  font-size: 20px;
 	  color: black;
-  }
-
-  #workout-info-title {
-	font-family: 'Simonetta';
-	font-size: 25px;
-	text-align: center;
-	/* padding-right: 11rem; */
 }
-  
 
-  
-  #table-title{
-	  font-size: 30px;
-	  font-family: 'Simonetta';
-	  text-align: center;
-	  /* padding-top: 5rem;
-	  padding-bottom: 2rem; */
-  }
-  table, th, td {
-	border: 1px solid black;
-  }
-
-  #goal-form-title {
+#goal-form-title {
 	font-family: 'Simonetta';
 	font-size: 20px;
-  }
+}
 
-  #goal-form {
+#goal-form {
 	font-family: 'Simonetta';
 	padding-left: 1rem;
-  }
+}
 
-  #form-input {
+#form-input {
 	border: 5px solid;
 	border-color: #512b58;
 	box-shadow: steelblue;
 	font-family: 'Simonetta';
-  }
+}
 
 #goal-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-
-/* #definitions {
-	padding-right: 37rem;
-} */
 
 #definition-button {
 	border: 1px solid #999;
@@ -369,39 +325,62 @@ main {
 #submit_button_goal {
 	font-family: 'Simonetta';
 	border: solid;
-  }
+}
+
 .header-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	justify-content: space-evenly;
-	 padding-top: 5rem;
-	  padding-bottom: 2rem;
-	  font-family: 'Simonetta';
+	padding-top: 5rem;
+	padding-bottom: 2rem;
+	font-family: 'Simonetta';
 }
-#save{
+
+#split-button {
 	border: solid;
 	border-color:  #512b58;
 	box-shadow: 0px 0px 8px;
-
 }
 
+#split {
+	border: solid;
+	border-color:  #512b58;
+	box-shadow: 0px 0px 8px;
+	text-align: center;
+}
 
+#workout-info-title {
+	font-family: 'Simonetta';
+	font-size: 25px;
+	text-align: center;
+}
 
-  #workouts {
+#table-title {
+	  font-size: 30px;
+	  font-family: 'Simonetta';
+	  text-align: center;
+	  padding-left: 6rem;
+}
+  
+table, th, td {
+	border: 1px solid black;
+}
+
+#workouts {
 	padding-bottom: 10rem;
 	background-color: lightgray;
 	font-family: 'Simonetta';
 	border: solid;
 	box-shadow: 0px 0px 8px;
-  }
+}
 
-  #workoutOneRow, #workoutTwoRow, #workoutThreeRow, #workoutFourRow, #workoutFiveRow {
+#workoutOneRow, #workoutTwoRow, #workoutThreeRow, #workoutFourRow, #workoutFiveRow {
 	width: 200px;
 	height: 200px;
 	background: #79bac1;
 	position: relative;
-  }
+}
 
 #workout-box-one, #workout-box-two, #workout-box-three, #workout-box-four, #workout-box-five {
 	position: absolute;
@@ -414,7 +393,6 @@ main {
 	box-shadow: 0px 0px 8px;
 	perspective: 1000px;
 }
-
 
 .flip-card-inner {
 	position: relative;
@@ -430,24 +408,23 @@ main {
 }
 
 
-.flip-card-front-one, .flip-card-front-two, .flip-card-front-three, .flip-card-front-four, .flip-card-front-five, .flip-card-back-one, .flip-card-back-two, .flip-card-back-three, .flip-card-back-four, .flip-card-back-five {
+#flip-card-front0, #flip-card-front1, #flip-card-front2, #flip-card-front3, #flip-card-front4, .flip-card-back0, .flip-card-back1, .flip-card-back2, .flip-card-back3, .flip-card-back4 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	/* -webkit-backface-visibility: hidden;  */
 	backface-visibility: hidden;
-  }
+}
 
 
-  .flip-card-front-one, .flip-card-front-two, .flip-card-front-three, .flip-card-front-four, .flip-card-front-five {
+#flip-card-front0, #flip-card-front1, #flip-card-front2, #flip-card-front3, #flip-card-front4 {
 	z-index: 2;
 	background-color: #bbb;
 	color: black;
-  }
+}
 
-  .flip-card-back-one, .flip-card-back-two, .flip-card-back-three, .flip-card-back-four, .flip-card-back-five {
+.flip-card-back0, .flip-card-back1, .flip-card-back2, .flip-card-back3, .flip-card-back4 {
 	transform: rotateY(180deg);
 	background-color: #512b58;
 	  color: white;
 	  font-size: 11px;
-  }
+}

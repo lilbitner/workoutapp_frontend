@@ -10,9 +10,6 @@ body {
     background-image: url(https://images.unsplash.com/photo-1520050735087-1ed65d9b0273?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
 }
 
-
-
-
 #about-card{
     border: solid;
     border-radius: 10px;
@@ -57,17 +54,10 @@ body {
 }
 
 #euphoria {
-font-size: 10px;
-text-align: center;
-font-family: 'Simonetta';
-/* background-color: #bae8e8;
-box-shadow: 0px 0px 8px; */
-/* font-weight: 200; */
-color: black;
-/* font-style: 
-font-family: 'Roboto', sans-serif; */
-
-/* border-radius: 2rem; */
+    font-size: 10px;
+    text-align: center;
+    font-family: 'Simonetta';
+    color: black;
 }
 
 #card-title {
@@ -78,7 +68,4 @@ font-family: 'Roboto', sans-serif; */
 
 #value-container {
     display: flex;
-    /* justify-content: center;
-    padding-left: 5rem;
-    padding-right: 5rem */
 }

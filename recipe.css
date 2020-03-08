@@ -18,7 +18,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -43,8 +43,6 @@ table {
 	border-spacing: 0;
 }
 
-
-
 body {
     display: flex;
     flex-direction: column;
@@ -56,21 +54,12 @@ body {
     background-image: url(https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)
 }
 
-
 h1#head-recipe{ 
     font-family: 'Simonetta';
     font-size: 35px;
     color: black;
     padding-bottom: 2rem;
 }
-
-/* 
-div.container {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-} */
-
 
 #card{
     border: solid;
